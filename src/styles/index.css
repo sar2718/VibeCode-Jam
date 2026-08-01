@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply min-h-screen bg-slate-100 bg-shell text-slate-950 antialiased transition-colors duration-300 dark:bg-slate-950 dark:text-slate-50;
+  }
+
+  #root {
+    @apply min-h-screen;
+  }
+
+  * {
+    @apply border-slate-200 dark:border-white/10;
+  }
+
+  a {
+    @apply text-inherit no-underline;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    @apply outline-none;
+  }
+
+  ::selection {
+    @apply bg-indigo-500/25 text-current;
+  }
+}
+
+@layer components {
+  .surface-page {
+    @apply min-h-screen bg-shell;
+  }
+
+  .surface-card {
+    @apply rounded-[28px] border border-slate-200/80 bg-white/90 shadow-[0_20px_60px_rgba(15,23,42,0.08)] backdrop-blur transition-all duration-300 dark:border-white/10 dark:bg-slate-900/80 dark:shadow-none;
+  }
+
+  .surface-muted {
+    @apply rounded-[24px] border border-slate-200/80 bg-slate-50/90 backdrop-blur transition-all duration-300 dark:border-white/10 dark:bg-white/5;
+  }
+
+  .surface-hero {
+    @apply rounded-[36px] border border-slate-200/70 bg-white/80 shadow-[0_30px_80px_rgba(15,23,42,0.08)] backdrop-blur transition-all duration-300 dark:border-white/10 dark:bg-slate-900/60 dark:shadow-none;
+  }
+
+  .text-subtle {
+    @apply text-slate-600 dark:text-slate-400;
+  }
+
+  .page-shell {
+    @apply mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-grid {
+    background-image: theme('backgroundImage.grid');
+    background-size: 36px 36px;
+  }
+
+  .fade-up {
+    @apply animate-fade-up;
+  }
+
+  .interactive-lift {
+    @apply transition-all duration-300 hover:-translate-y-0.5 hover:shadow-panel;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+}
+
+textarea::-webkit-scrollbar,
+pre::-webkit-scrollbar,
+div::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+textarea::-webkit-scrollbar-thumb,
+pre::-webkit-scrollbar-thumb,
+div::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.28);
+  border-radius: 999px;
+}
+
+textarea::-webkit-scrollbar-track,
+pre::-webkit-scrollbar-track,
+div::-webkit-scrollbar-track {
+  background: transparent;
+}
